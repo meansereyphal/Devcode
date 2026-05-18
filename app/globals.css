@@ -3,13 +3,34 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --Nutrual: #0F172A;
+  --Tertiary: #B96A01;
+  --Secondary: #64748B;
+  --Primary: #0284C7;
+  --button: #3198DC;
+  --button-text: #002C47;
+  --border: #3F4850;
+  --mid: #171F33;
+  --text-light: #BFC7D2;
+  --link: #93CCFF;
+  --extra-light: #89929B;
 }
 
 @theme inline {
-  --color-background: var(--background);
+  --color-background: var(--Nutrual);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-primary: var(--Primary);
+  --color-secondary: var(--Secondary);
+  --color-tertiary: var(--Tertiary);
+  --color-button: var(--button);
+  --color-button-text: var(--button-text);
+  --color-border: var(--border);
+  --color-mid: var(--mid);
+  --color-link: var(--link);
+  --color-text-light: var(--text-light);
+  --color-extra-light: var(--extra-light);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,7 +41,7 @@
 }
 
 body {
-  background: var(--background);
+  background: var(--Nutrual);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
