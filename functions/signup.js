@@ -2,6 +2,7 @@
 
 import { supabaseClient } from "../lib/supabase/supabaseClient"
 export default async function signUp(name, email, password, confirmPassword) {
+    let err = {success: true, message: ""}
     if (password !== confirmPassword) {
         throw new Error("Passwords do not match");
     }
@@ -17,8 +18,12 @@ export default async function signUp(name, email, password, confirmPassword) {
     })
 
     if (error) {
-        return { success: false, message: error.message };
+        err.success = false
+        err.message = error.message
+        return err;
     }
 
-    return { success: true, message: "User registered successfully" };
+    err.success = true
+
+    return err;
 }

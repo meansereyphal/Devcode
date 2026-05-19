@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { MdOutlineEmail, MdLockOutline } from "react-icons/md";
 import Link from "next/link";
+import signIn from "@/functions/signin";
 
 export default function Signup() {
   return (
@@ -15,12 +16,12 @@ export default function Signup() {
             <p className="font-mono text-left w-full text-[12px] text-text-light tracking-widest">EMAIL ADDRESS</p>
             <div className="w-full">
               <MdOutlineEmail className="absolute ml-3 mt-1" />
-              <input type="email" className="-mt-5 w-full border border-border rounded-md pt-2 pb-2 pl-10" placeholder="name@company.com" />
+              <input type="email" name="email" id="email" className="-mt-5 w-full border border-border rounded-md pt-2 pb-2 pl-10" placeholder="name@company.com" />
             </div>
             <p className="font-mono text-left w-full text-[12px] text-text-light tracking-widest">PASSWORD</p>
             <div className="w-full">
               <MdLockOutline className="absolute ml-3 mt-1" />
-              <input type="password" className="-mt-5 w-full border border-border rounded-md pt-2 pb-2 pl-10" placeholder="••••••••" />
+              <input type="password" name="password" id="password" className="-mt-5 w-full border border-border rounded-md pt-2 pb-2 pl-10" placeholder="••••••••" />
             </div>
               <button className=" cursor-pointer bg-button text-[18px] font-bold text-button-text w-full h-10 rounded-md">Sign In</button>
           </form>
