@@ -1,29 +1,31 @@
 "use server"
 
 import { supabaseClient } from "../lib/supabase/supabaseClient"
-export default async function signUp(name, email, password, confirmPassword) {
-    let err = {success: true, message: ""}
-    if (password !== confirmPassword) {
+export default async function signUp(prevSatate, formData) {
+    const info = {
+        name: formData.get('username'),
+        email: formData.get('email'),
+        password: formData.get('password'),
+        confirmPassword: formData.get('confirmPassword')
+    }
+
+    if (info.password !== info.confirmPassword) {
         throw new Error("Passwords do not match");
     }
 
     const {data, error} = await supabaseClient.auth.signUp({
-        email,
-        password,
+        email: info.email,
+        password: info.password,
         options: {
             data: {
-                name
+                name: info.name
             }
         }
     })
 
     if (error) {
-        err.success = false
-        err.message = error.message
-        return err;
+        return { success: false, message: error.message };
     }
 
-    err.success = true
-
-    return err;
+    return { success: true, message: "User registered successfully" };
 }
